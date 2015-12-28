@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+#
+# NOTBICKER
+#
+
+from bbcwsgitools import EnvironDumper, JSON_Interceptor, CGI_Parser, Functional
+from RelationTrees import page_render_html
+
+
+if __name__ == "__main__":
+    import cgitb ; cgitb.enable()
+    from wsgiref.handlers import CGIHandler
+
+    CGIHandler().run( CGI_Parser( JSON_Interceptor( Functional(page_render_html, style="simple",responsetype="text/html") ) ) )

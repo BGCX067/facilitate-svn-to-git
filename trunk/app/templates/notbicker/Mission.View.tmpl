@@ -1,0 +1,16 @@
+#def $form: form
+#def $mission: &nbsp;
+#def $missionid: -1
+#def $shortdescription: &nbsp;
+#def $mediumdescription: &nbsp;
+#def $longdescription: &nbsp;
+#def $basemission   : &nbsp;
+#def $appurl: /cgi-bin/app/missions
+
+<h1> $mission </h1>
+<P><i> <a href='$appurl?formtype=edit_mission&missionid=$missionid'>edit</a>, <a href='$appurl?formtype=delete_mission&missionid=$missionid'>delete</a> </i>
+<P><i>$shortdescription</i>
+<P>$mediumdescription
+<P>$longdescription
+<P>$basemission
+

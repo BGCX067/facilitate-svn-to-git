@@ -1,0 +1,82 @@
+The purpose of this directory tree is to show what's needed for a single
+entity in the system. 
+
+The following 2 files are needed to implement the "Missions" entity:
+
+    missions & Missions.py
+
+In "templates" the following files exist for this entity:
+
+    Missions.View.tmpl
+    Mission.View.tmpl
+    Mission.Edit.tmpl
+
+They have the following purposes:
+
+   Missions.View.tmpl
+      List view of all mission entities (can & does skip fields)
+
+   Mission.View.tmpl
+      View a single mission entity
+
+   Mission.Edit.tmpl
+      Edit a single mission entity
+
+More generally this means you need to have:
+
+   entities & Entities.py
+
+   templates/
+        Entities.View.tmpl
+        Entity.View.tmpl
+        Entity.Edit.tmpl
+       
+In order to have the core code and templates.
+
+Finally the code has to be pulled into the main page template.
+
+Specifically the following are needed in templates/Page.tmpl in order
+for the "missions" entity set to be active:
+
+    #def $missionsappurl: /cgi-bin/app/missions
+
+    #def $addmissionurl: $missionsappurl?formtype=edit_new
+    #def $addmission: <a href="$addmissionurl">Add</a>
+    #def $missionshomelink: <a href="$missionsappurl">Home</a>
+
+    <td align="center" style="border: 3px solid; padding: 8;"> 
+       Mission<br>($missionshomelink | $addmission) 
+    </td>
+
+Or more generally:
+    #def $entitiesappurl: /cgi-bin/app/entities
+
+    #def $addentityurl: $entitiesappurl?formtype=edit_new
+    #def $addentity: <a href="$addentityurl">Add</a>
+    #def $entitieshomelink: <a href="$entitiesappurl">Home</a>
+
+    <td align="center" style="border: 3px solid; padding: 8;"> 
+       Entity<br>($entitieshomelink | $addentity) 
+    </td>
+
+In summary:
+
+  Clone (say missions) & edit: 
+     entities & Entities.py
+
+     templates/
+          Entities.View.tmpl
+          Entity.View.tmpl
+          Entity.Edit.tmpl
+
+  Edit:
+     templates/Page.tmpl
+
+
+Michael, April 2008
+
+
+
+
+
+

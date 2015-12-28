@@ -1,0 +1,20 @@
+#def $form: form
+#def $comment: &nbsp;
+#def $id: -1
+
+##def $house: &nbsp;
+##def $street: &nbsp;
+##def $town: &nbsp;
+##def $county: &nbsp;
+##def $postcode: &nbsp;
+##def $phone: &nbsp;
+
+#def $appurl: /cgi-bin/app/comments
+
+<h1> $comment </h1>
+<P><i> <a href='$appurl?formtype=edit_comment&commentid=$commentid'>edit</a>, <a href='$appurl?formtype=delete_comment&commentid=$commentid'>delete</a> </i>
+##<P>$house $street<br>
+#$comment<br>
+##$county<br>
+##$postcode
+##<P>$phone

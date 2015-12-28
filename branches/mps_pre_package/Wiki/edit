@@ -1,0 +1,182 @@
+#!/usr/bin/python
+# Needed to make this code work happily with Python 2.2
+
+from __future__ import generators
+import cgitb; cgitb.enable()
+import os
+import time
+
+try:
+    # If we're running as an error handler on apache, we don't
+    # actually have any information about the query string
+    # or anything about the results of any cgi POST, in the
+    # usual place, but we do still have the information.
+    # As a result, we need to copy this to somewhere useful!
+   os.environ["QUERY_STRING"] = os.environ["REDIRECT_QUERY_STRING"]
+   os.environ["REQUEST_METHOD"] = os.environ["REDIRECT_REQUEST_METHOD"]
+except KeyError:
+      pass
+      # Can't copy something undefined :-)
+      # (NOTE: this won't be a problem - since this as noted is
+      #  designed to help with running under an error handler)
+
+import cgi
+import sys
+import pprint
+import re
+from CDML.Page import getPage, getTemplate, storePage
+from CDML.xCDML import handleCDML
+from MimeDict import MimeDict
+from CDML.Defaults import context
+from Cookie import SimpleCookie
+
+default = context["defaultpage"]
+
+# How to set a system note!
+# context["systemnote"] = "Hello(%s)" % repr(context["pageversion"])
+
+def debugTail(context):
+    try:
+        if context["form"]["debug"] and context["debuggable"]:
+            cgi.print_environ()
+    except KeyError:
+        if context["alwaysdebug"]:
+            cgi.print_environ()
+        pass
+
+def getMode(context):
+    try:
+        context["mode"] = context["form"]["mode"]
+        try:
+           context["mode"] = context["mode"].value
+        except AttributeError:
+           # OK, broken request - let's default to view
+           context["mode"] = "view"
+    except KeyError:
+        # OK, broken request - let's default to view
+#        raise "There ??? "+str(context["mode"])
+        context["mode"] = "view"
+
+
+def setPageName(context):
+    envkey = "REDIRECT_URL"
+    try:
+        os.environ[envkey]
+    except KeyError:
+        envkey = "PATH_INFO"
+    name = os.environ.get(envkey, "/%s" % default)[1:]
+    context["userpagename"] = name # keep this for later...
+    
+    #
+    # MAP CLIENT URLS TO ACTUAL PAGES.
+    # CHANGES LIKE THIS ARE RARE, BUT DO HAPPEN (/, /Home /index for example)
+    #
+    
+    if name == "":
+        name = default
+        context["page_is_defaultpage"] = True
+        context["what_did_user_call_defaultpage"] = ""
+    if name == "Home":
+        name = default
+        context["page_is_defaultpage"] = True
+        context["what_did_user_call_defaultpage"] = "Home"
+    if name:
+       context["pagename"] = name
+
+
+def setPageRevision(context):
+    try:
+        version = context["form"]["version"]
+        try:
+            version = version.value
+        except AttributeError:
+            pass
+        context["pageversion"] = version
+    except KeyError:
+       context["pageversion"] = None
+
+
+def handlePageSave(context):
+    try:
+        text = context["form"]["text"] 
+        try:
+           text = text.value
+        except AttributeError:
+           pass # Ok, will cock up under certain circumstances
+
+        text = "\n" + text # NASTY HACK - PRECLUDES METADATA FIXES A NASTY BUG
+        if context["mode"]=="save":
+            context["meta"] = MimeDict.fromString("\r\n\r\n"+text)
+            context["content"] += context["meta"]["__BODY__"]
+#            raise repr(context["email_validation"])
+            storePage(context)
+            context["finalpage"] = True
+            context["wantthis"] = context["root"] + context["userpagename"]
+            print context["rawtemplate"] % context
+    except KeyError,e:
+        raise "FIXME: SOMETHING WENT TERRIBLY WRONG, AND WE SHOULD BE USING ERROR.TMPL HERE" + repr(e) + ":"+str(e)
+
+getMode(context)
+setPageName(context)
+setPageRevision(context)
+try:
+    context["rawtemplate"] = getTemplate(context)
+except IOError:
+    pass
+
+
+if context["mode"] == "save":
+    handlePageSave(context)
+    # pass
+else:
+    if context["mode"] == "bingle":
+         print "Status: 401 Authorization Required"
+         print "Content-Type: text/html"
+         print 'WWW-Authenticate: Basic realm="Enter your name & password"'
+         print
+         print "<html><body>"
+         print "<h1> 401 Please Authorize </h1>"
+         print "</body></html>"
+    else:
+        context["rawtemplate_DICT"] = MimeDict.fromString(context["rawtemplate"])
+        context["template"] = context["rawtemplate_DICT"]["__BODY__"]
+    
+        content, meta = getPage(context)
+        context["content"] += content #meta["__BODY__"]
+        context["meta"] = meta
+    
+        # Load in the old cookies - these form part of the evaluation environment
+        cookies_in = SimpleCookie()
+        try:
+            cookies_in.load(os.environ["HTTP_COOKIE"])
+        except KeyError:
+            pass
+        context["cookies"] = cookies_in
+    
+        for page_element in ["content", "template"]:
+            context[page_element] = handleCDML(context,context[page_element])
+    
+        context["rawtemplate_DICT"]["__BODY__"] = context["template"] # WTF?!
+    
+        for header in context["headers"]:
+            print "%s: %s" % (header, context["headers"][header])
+    
+        # Send any new cookies to the use, and make them expire after 30 years (!)
+        for cookie in context["newcookies"]:
+            cookie_OBJ = SimpleCookie()
+            cookie_OBJ[cookie] = context["newcookies"][cookie]
+            cookie_OBJ[cookie]["expires"] = int(time.time()) + 3600*24*365
+            print cookie_OBJ
+
+        content = str(context["rawtemplate_DICT"])
+        if context["mode"] == "view":
+           content = content.replace("%91%", "[")
+           content = content.replace("%93%", "]")    
+           content = content.replace("%60%", "&lt;")
+           content = content.replace("%62%", "&gt;")    
+
+        print "Status: 200"
+        print content
+    
+        debugTail(context)
+

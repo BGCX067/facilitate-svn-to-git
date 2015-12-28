@@ -1,0 +1,32 @@
+
+# *** Modifying this file when named config.py.default will have no effect ***
+#
+# This is the default config file. 
+# Copy this to config.py and change settings there, not here.
+#
+# *** Modifying this file when named config.py.default will have no effect ***
+#
+# We pass you the config here for you to fiddle and play with.
+# Please drive carefully.
+
+config = {
+#    "host" : "yourhostname",
+# Two possible options depending on whether you're running as an error handler or not:
+#    "cgipath" : "/",
+#    "cgipath" : "/cgi-bin/Wiki/wiki/",
+#
+# Even if you're running under an error hander, you'll want this option set to the full path:
+#
+#    "cgipostpath" : "/cgi-bin/Wiki/wiki/",
+#
+# If you're having problems, set this to True:
+#
+#    "alwaysdebug" : False,
+#
+# You will almost certainly want to change this to somewhere else!
+#
+#    "docbase": "/media/usbdisk/SF/hotdocs",
+}
+
+
+    

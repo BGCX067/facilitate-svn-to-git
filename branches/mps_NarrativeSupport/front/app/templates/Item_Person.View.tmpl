@@ -1,0 +1,40 @@
+#def $appurl: $SCRIPT_NAME
+#def $form: form
+#def $itempersonid: -1
+#def $relation: &nbsp;
+
+## All attributes from left relation prefixed "left_"
+## All attributes from right relation prefixed "right_"
+
+#def $left_item: &nbsp;
+#def $left_itemid: -1
+#def $left_tags: &nbsp;
+#def $left___filename: &nbsp;
+
+#def $right_person: &nbsp;
+#def $right_personid: -1
+#def $right_house: &nbsp;
+#def $right_street: &nbsp;
+#def $right_town: &nbsp;
+#def $right_county: &nbsp;
+#def $right_postcode: &nbsp;
+#def $right_phone: &nbsp;
+#def $upload_base_url: /
+
+<h1>Relation : $relation, $itempersonid</h1>
+<ul>
+<P><i> <a href='$appurl?formtype=edit&amp;itempersonid=$itempersonid'>edit</a>, <a href='$appurl?formtype=delete_item&amp;itempersonid=$itempersonid'>delete</a> </i>
+<div style="width:50%; float: left">
+<h1> $left_item </h1>
+<P>Filename: <a href="$upload_base_url$left___filename">$left___filename</a>
+<P>Tags: $left_tags
+</div>
+<div style="width:50%; float: left">
+<h1> $right_person </h1>
+<P>$right_house $right_street<br>
+$right_town<br>
+$right_county<br>
+$right_postcode
+<P>$right_phone
+</div>
+</ul>

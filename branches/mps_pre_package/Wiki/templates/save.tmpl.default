@@ -1,0 +1,13 @@
+Status: 302
+Content-Type: text/html
+Location: %(wantthis)s
+
+<html>
+<body>
+<h1> Thank you for your edit - it has been safely stored</h1>
+<p> Your browser is incorrectly displaying this message - it should have taken you back to your page in view mode. Please click the link below to view your newly editted page:
+<ul>
+<li> <a href="%(wantthis)s"> %(wantthis)s </a>
+</ul>
+</body>
+</html>

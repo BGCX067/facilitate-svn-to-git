@@ -1,0 +1,17 @@
+#def $form: form
+#def $item: &nbsp;
+#def $itemid: -1
+#def $tags: &nbsp;
+#def $__filename: &nbsp;
+#def $town: &nbsp;
+#def $county: &nbsp;
+#def $postcode: &nbsp;
+#def $phone: &nbsp;
+#def $appurl: /cgi-bin/app/items
+#def $upload_base_url: /
+
+<h1> $item </h1>
+<P><i> <a href='$appurl?formtype=edit&itemid=$itemid'>edit</a>, <a href='$appurl?formtype=delete&itemid=$itemid'>delete</a> </i>
+
+<P>Filename: <a href="$upload_base_url$__filename">$__filename</a>
+<P>Tags: $tags

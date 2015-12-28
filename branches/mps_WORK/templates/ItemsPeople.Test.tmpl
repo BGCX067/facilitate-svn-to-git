@@ -1,0 +1,33 @@
+#def $form: form
+#def $itemselected: None
+#def $personselected: None
+#def $itempersonid: -1
+#def $pretext: Create relation between:
+
+<input type="hidden" name="$(form).itempersonid" value="$itempersonid" />
+<P>$pretext
+<ul>
+#if $itempersonid != "-1"
+$itempersonid
+#end if
+<select name="$(form).itemid">
+#for $item in $Items
+<option value="$item["itemid"]"
+#if $item["itemid"] == $itemselected
+selected
+#end if
+>$item["item"],  $item["tags"]</option>
+#end for
+</select>
+
+<select name="$(form).personid">
+#for $person in $People
+#if $person["personid"] == $personselected
+<option value="$person["personid"]" selected> $person["person"], $person["house"] $person["street"], $person["town"], $person["county"], $person["postcode"], $person["phone"]</option>
+#else
+<option value="$person["personid"]"> $person["person"], $person["house"] $person["street"], $person["town"], $person["county"], $person["postcode"], $person["phone"]</option>
+#end if
+#end for
+</select>
+</ul>
+

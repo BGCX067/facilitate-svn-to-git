@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+# NOTE: You will create (at present) a copy of this script,
+# NOTE: named in lower case after the entity set.
+# NOTE: (eg people not People, people not person, items not item)
+
+from bbcwsgitools import EnvironDumper, JSON_Interceptor, CGI_Parser, Functional
+
+# NOTE: Customise "Missions" here:
+from Missions import page_render_html
+
+if __name__ == "__main__":
+    import cgitb ; cgitb.enable()
+    from wsgiref.handlers import CGIHandler
+
+    CGIHandler().run( CGI_Parser( JSON_Interceptor( Functional(page_render_html, style="simple",responsetype="text/html") ) ) )

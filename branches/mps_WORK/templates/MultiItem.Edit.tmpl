@@ -1,0 +1,14 @@
+#def $form: form
+#def $item: &nbsp;
+#def $itemid: -1
+#def $upload: &nbsp;
+#def $tags: &nbsp;
+!!!!
+<input type="hidden" name="$(form).itemid" value="$itemid" /> </td></tr>
+<table>
+<tr><td> Upload file: </td><td> <input type="file" name="$(form).upload.1" value="$upload" size="30"/> </td></tr>
+<tr><td> Upload file: </td><td> <input type="file" name="$(form).upload.2" value="$upload" size="30"/> </td></tr>
+<tr><td> Upload file: </td><td> <input type="file" name="$(form).upload.3" value="$upload" size="30"/> </td></tr>
+<tr><td> Name </td><td> <input type="text" name="$(form).item" value="$item" size="30"/> </td></tr>
+<tr><td> Tags</td><td> <input type="text" name="$(form).tags" value="$tags" size="30"/> </td></tr>
+</table>

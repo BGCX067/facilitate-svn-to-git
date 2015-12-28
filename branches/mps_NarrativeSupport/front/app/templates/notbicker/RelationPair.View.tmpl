@@ -1,0 +1,39 @@
+##Not quite there fix this on Monday
+##def $relationid: "$(form).relationid"
+#def $appurl: $SCRIPT_NAME
+#def $form: form
+#def $relationid: -1
+#def $relation: &nbsp;
+#def $deletedlhstext: Left hand side of this relation has been deleted
+#def $Left_text: Left side database:-
+#def $Right_text: Right side database:-
+#def $Left_item_text: Left side item: 
+#def $Right_item_text: Right side item:
+$relationid 
+
+<P><i> <a href='$appurl?formtype=edit_relation&amp;relationid=$relationid'>edit</a>,   <a href='$appurl?formtype=delete_relation&amp;relationid=$relationid'>delete</a> </i>
+<div style="width:50%; float: left">
+<table>
+<tr><h1>$Left_text &nbsp </h1>
+<tr> <h1>$Leftdbid</h1>
+<tr><h2>$Left_item_text $Leftid </h2>
+#if $LeftVals<>"None"
+#for $val in $LeftVals
+<tr><td>$val <td>| &nbsp $LeftVals[$val] </td>
+#end for
+#else
+$deletedlhstext
+#end if
+</table>
+</div>
+
+<div style="width:50%; float: left">
+<table>
+<tr> <h1>$Right_text &nbsp </h1>
+<tr> <h1>$Rightdbid</h1>
+<tr><h2>$Right_item_text $Rightid </h2>
+#for $val in $RightVals
+<tr><td>$val  <td>| &nbsp $RightVals[$val]</tr></td>
+#end for
+</table>
+</div>

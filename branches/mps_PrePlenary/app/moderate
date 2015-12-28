@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+#
+# BICKER
+#
+
+print "Content-Type: text/html\n\n"
+print """
+<html>
+<body>
+<h1> Moderation Complete !</h1>
+</body>
+</html>
+"""
+
+import os
+
+basedir = "/srv/www/sites/bicker"
+
+for image in os.listdir(basedir + "/moderate/images/"):
+    files = os.listdir(basedir + "/moderate/images/"+image)
+    if not (len(files) < 7):
+        for size in os.listdir(basedir + "/moderate/images/"+image):
+          try:
+            os.rename(basedir + "/moderate/images/"+image+"/"+size,
+                      basedir + "/docs/images/user/"+image+"/"+size)
+          except OSError:
+            raise "Hm..." + basedir + "/docs/images/user/"+image+"/"+size
+
+        os.rmdir(basedir + "/moderate/images/"+image)
+
+for video in os.listdir(basedir + "/moderate/videos/"):
+    if video[video.rfind("."):] == ".flv":
+
+        os.rename(basedir + "/moderate/videos/" + video,
+                  basedir + "/docs/videos/user/" + video)

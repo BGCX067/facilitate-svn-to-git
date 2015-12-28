@@ -1,0 +1,16 @@
+#def $appurl: $SCRIPT_NAME
+#def $viewurl: $appurl?formtype=view&missionstepid=
+#set __leftfields = ["mission", "shortdescription"]
+#set __rightfields = ["mission", "shortdescription"]
+
+#for $tuple in $tuples
+<li><a href="$appurl?formtype=view&amp;missionstepid=$tuple["missionstepid"]">$tuple["missionstepid"]</a> : $tuple["leftid"] , $tuple["rightid"]  :
+#for $field in $leftfields
+$tableone[$tuple["leftid"]][$field]
+#end for
+,
+#for $field in $rightfields
+$tabletwo[$tuple["rightid"]][$field]
+#end for
+, $tuple["humancondition"]
+#end for

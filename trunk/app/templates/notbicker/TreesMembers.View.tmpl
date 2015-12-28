@@ -1,0 +1,16 @@
+#def $appurl: $SCRIPT_NAME
+#def $viewurl: $appurl?formtype=view&treememberid=
+##set __leftfields = ["mission", "shortdescription"]
+##set __rightfields = ["mission", "shortdescription"]
+
+#for $tuple in $tuples
+<li><a href="$appurl?formtype=view&amp;treememberid=$tuple["treememberid"]">$tuple["treememberid"]</a> : $tuple["treeid"] , $tuple["personid"]  :
+#for $field in $leftfields
+$tableone[$tuple["treeid"]][$field]
+#end for
+,
+#for $field in $rightfields
+$tabletwo[$tuple["personid"]][$field]
+#end for
+, ##$tuple["humancondition"]
+#end for

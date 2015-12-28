@@ -1,0 +1,47 @@
+#def $appurl: $SCRIPT_NAME
+#def $form: form
+##def $treememberid: -1
+#def $relation: &nbsp;
+#def $humancondition: &nbsp;
+#def $machinecondition: &nbsp;
+#def $treename: &nbsp;
+#def $person: &nbsp;
+
+## All attributes from left relation prefixed "left_"
+## All attributes from right relation prefixed "right_"
+
+#def $left_mission: &nbsp;
+#def $left_missionid: -1
+#def $left_shortdescription: &nbsp;
+#def $left_mediumdescription: &nbsp;
+#def $left_longdescription: &nbsp;
+
+#def $right_mission: &nbsp;
+#def $right_missionid: -1
+#def $right_shortdescription: &nbsp;
+#def $right_mediumdescription: &nbsp;
+#def $right_longdescription: &nbsp;
+
+#def $upload_base_url: /
+
+<h1>Group member : $relation $treememberid</h1>
+
+<P> Transitions because: $humancondition<br>
+(code: $machinecondition )
+
+<ul>
+$treename $person
+<P><i> <a href='$appurl?formtype=edit&amp;treememberid=$treememberid'>edit</a>, <a href='$appurl?formtype=delete_item&amp;treememberid=$treememberid'>delete</a> </i>
+<div style="width:50%; float: left">
+<h1> $left_mission </h1>
+<P><i>$left_shortdescription</i>
+<P>$left_mediumdescription
+<P>$left_longdescription
+</div>
+<div style="width:50%; float: left">
+<h1> $right_mission </h1>
+<P><i>$right_shortdescription</i>
+<P>$right_mediumdescription
+<P>$right_longdescription
+</div>
+</ul>

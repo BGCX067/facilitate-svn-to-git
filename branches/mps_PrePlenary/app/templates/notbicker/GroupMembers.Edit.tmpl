@@ -1,0 +1,46 @@
+#def $form: form
+#def $leftselected: None
+#def $rightselected: None
+#def $groupmemberid: -1
+#def $pretext: Add person to group:
+#def $nameofgroup: Group name
+#def $nameofperson:  name of person to add 
+#def $humancondition: &nbsp;
+#def $machinecondition: &nbsp;
+#def $extraval:  None 
+
+<input type="hidden" name="$(form).groupmemberid" value="$groupmemberid" />
+##<input type="hidden" name="$(form).groupname" value="$groupname" />
+<P>$pretext
+<ul>
+#if $groupmemberid != "-1"
+$groupmemberid
+#end if
+$nameofgroup
+<select name="$(form).groupid">
+#for $item in $Items
+<option value="$item["groupid"]"
+#if  $item["groupid"]  == $leftselected
+selected
+#end if
+>  $item["groupname"] </option>
+#end for
+</select
+$nameofperson
+<select name="$(form).personid">
+#for $person in $People
+<option value="$person["personid"]"
+#if $person["personid"] == $rightselected
+selected
+#end if
+> $person["person"]</option>
+#end for
+</select>
+</ul>
+##<table>
+##<tr><td> Condition Description</td><td> <input type="text" name="$(form).humancondition" value="$humancondition" size="30"/> </td></tr>
+##<tr><td> Condition Filter</td><td> <input type="text" name="$(form).machinecondition" value="$machinecondition" size="30"/> </td></tr>
+##</table>
+
+##$item["groupid"],
+##$person["person"], 

@@ -1,0 +1,15 @@
+#def $appurl: $SCRIPT_NAME
+#def $viewurl: $appurl?formtype=view&itemid=
+#set __leftfields = ["item", "tags"]
+#set __rightfields = ["person", "house", "street", "town", "county", "postcode", "phone"]
+
+#for $tuple in $tuples
+<li><a href="$appurl?formtype=view&amp;itempersonid=$tuple["itempersonid"]">$tuple["itempersonid"]</a> : $tuple["itemid"] , $tuple["personid"]  :
+#for $field in $leftfields
+$tableone[$tuple["itemid"]][$field]
+#end for
+,
+#for $field in $rightfields
+$tabletwo[$tuple["personid"]][$field]
+#end for
+#end for

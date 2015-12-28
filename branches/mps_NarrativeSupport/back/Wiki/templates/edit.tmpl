@@ -1,0 +1,117 @@
+Content-Type: text/html
+
+<html>
+<head>
+<title> </title>
+<script type="text/javascript">
+        var djConfig = {
+                isDebug: false,
+                parseWidgets: true
+        };
+</script>
+<script src="/dojo.js" type="text/javascript" ></script>
+<script type="text/javascript">
+    dojo.require("dojo.widget.Editor2");
+</script>
+<style>
+*.thinborder {
+    border-style: solid;
+    border-width: thin;
+}
+.boxright {
+     float: right;
+     width: 16em;
+    padding: 0.5em;
+    margin: 1em;
+    clear: right;
+    border: 1px solid;
+}
+.none { width: 100%;
+        clear: both;
+}
+
+.subsection { }
+.sectionheader {
+                 text-align: center;
+                 font-weight: bold;
+                 padding-bottom: 1em;
+               }
+.sectioncontent { font-size: 0.9em;
+                  margin-left: 2em;
+                  line-height: 1.5;
+                  text-align: left;
+                }
+.verticaldivider { float: bottom;
+                   width: 100%;
+                 }
+
+ .rbroundbox_green { background: url(/t/green.corners-top.png) repeat-x;
+               width: 50%;
+               float: right;
+               }
+ .rbtop_green div { background: url(/t/green.corners-topleft.png) no-repeat top left; }
+ .rbtop_green { background: url(/t/green.corners-topright.png) no-repeat top right; }
+
+ .rbcontent_green div { background: url(/t/green.corners-right.png) repeat-y right;
+                }
+ .rbcontent_green { background: url(/t/green.corners-left.png) repeat-y left;
+              padding-left: 1.5em;
+            }
+
+ .rbbot_green div { background: url(/t/green.corners-bottomleft.png) no-repeat bottom left; }
+ .rbbot_green { background: url(/t/green.corners-bottomright.png) no-repeat bottom right; }
+ .rbbottom_green { background: url(/t/green.corners-bottom.png) repeat-x; }
+ .rbtop_green div, .rbtop_green, .rbbot_green div, .rbbot_green {
+ width: 100%;
+ height: 23px;
+ font-size: 1px;
+ }
+body {
+   text-align: justify;
+}
+
+.sidebar {
+    width: 10em;
+    float: left;
+    padding: 1em;
+
+}
+.bodytext {
+
+    margin: 0 5em 0em 5em;
+    float: auto;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.topnav {
+    padding-top: 0em;
+    margin-top: 0em;
+    float: right;
+}
+</style>
+</head>
+<body style="font-size: 10pt; font-family: verdana,arial,helvetica,sans-serif; line-height: 1.5;">
+</div><div class="none">
+<h1 align="right"> Edit: [[userpagename]] </h1>
+<p align="right">
+[[OKUSER]]|
+<a href="[[scripturl]]">Home</a> | 
+[[referer]] | 
+<a href="[[scripturl]]cgi-bin/Wiki/edit/[[userpagename]]?mode=edit">Edit</a>
+</p>
+
+<P>
+<form method="post" action="[[scripturl]]cgi-bin/Wiki/edit/[[userpagename]]" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="mode" value="save" />
+<input type="hidden" name="isdefaultpage" value="[[isdefault]]" />
+<input type="hidden" name="userdefaultname" value="[[userdefaultname]]" />
+<!-- <div class="thinborder"> -->
+<textarea name="text" class="dojo-Editor2" items="textGroup;blockGroup;justifyGroup;colorGroup;listGroup;indentGroup;linkGroup">
+
+[[content]]
+</textarea>
+<!-- </div> -->
+<input type="submit" tabindex="1" name="Save Page" value="save" accesskey="p" />
+</form>
+</body>
+</html>

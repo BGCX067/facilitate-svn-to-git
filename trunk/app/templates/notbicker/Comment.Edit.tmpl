@@ -1,0 +1,23 @@
+#def $form: form
+#def $commentid: -1
+#def $comment: &nbsp;
+##def $person: &nbsp;
+##def $street: &nbsp;
+##def $town: &nbsp;
+##def $county: &nbsp;
+##def $postcode: &nbsp;
+##def $phone: &nbsp;
+##def $phone: &nbsp;
+$commentid
+<input type="hidden" name="$(form).commentid" value="$commentid" /> </td></tr>
+<table>
+<tr><td> Comment </td><td> <input type="text" name="$(form).comment" value="$comment" size="30"/> </td></tr>
+
+</table>
+
+##<tr><td> Comment</td><td> <input type="text" name="$(form).comment" value="$comment" size="30"/> #</td></tr>
+##<tr><td> Street </td><td> <input type="text" name="$(form).street" value="$street" size="30"/> </td></tr>
+##<tr><td> Town </td><td> <input type="text" name="$(form).town" value="$town" size="30"/> </td></tr>
+##<tr><td> County </td><td> <input type="text" name="$(form).county" value="$county" size="30"/> </td></tr>
+##<tr><td>Postcode </td><td> <input type="text" name="$(form).postcode" value="$postcode" size="30"/> </td></tr>
+##<tr><td>Phone </td><td> <input type="text" name="$(form).phone" value="$phone" size="30"/> </td></tr>

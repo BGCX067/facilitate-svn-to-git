@@ -1,0 +1,60 @@
+#def $form: form
+#def $appurl: /cgi-bin/app/relations
+#def $viewurl: $appurl?formtype=view&itemid=
+#def $relationid: -1
+#def root_dbid: -1
+#def $leftselected: None
+#def rightselected: None
+#def prepretext: Either: for new head node
+#def altprepretext: For new node
+#def prepretextwo: Or: for new subtree node 
+#def $pretext: Define tree relation 
+#def $intertext: between item type:-
+#def $intertextwo: between relation:- 
+#def $context:    and item type:-
+##def $subtext: go 
+<input type="hidden" name="$(form).relationid" value="$relationid" />
+<input type="hidden" name="$(form).root_dbid" value="$root_dbid" />
+#if $relations == []
+<P><H1> $prepretext </H1>
+<P>$pretext
+#else 
+<P><H1>$altprepretext </H1>
+
+#end if 
+##if $relationid != "-1"
+$relationid
+##end if
+$intertext
+<select name="$(form).leftid">
+#for $item in $itemtypes
+<option value="$item["item"]"
+#if $item["item"] == $leftselected
+selected
+#end if
+>$item["item"]
+##,  $item["shortdescription"]</option>
+#end for
+</select>
+$context
+<select name="$(form).rightid">
+#for $item in $itemtypes
+<option value="$item["item"]"
+#if $item["item"] == $rightselected
+selected
+#end if
+>$item["item"]
+##,  $item["shortdescription"]</option>
+#end for
+</select>
+<P>
+
+
+
+##for $person in $People
+##<option value="$person["missionid"]"
+##if $person["missionid"] == $rightselected
+##selected
+##end if
+##>$person["mission"],  $person["shortdescription"]</option>
+##end for

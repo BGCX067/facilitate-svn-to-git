@@ -1,0 +1,14 @@
+#def $action: $SCRIPT_NAME
+#def $formbody: &nbsp;
+#def $submitlabel: Add Entry
+#def $submit: <input type="submit" value="$submitlabel" />
+#def $formtype: create_new
+#def $reset: <input type="reset" />
+#def $formextra: &nbsp;
+<form action="$action" method="POST" enctype="multipart/form-data">
+<input type="hidden" name="formtype" value="$formtype" />
+$formextra
+$formbody
+$submit
+$reset
+</form>

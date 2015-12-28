@@ -1,0 +1,241 @@
+#def $banner: Participate App V0 User View: 
+#def $userbanner: Welcome Participate User 
+#def $peopleappurl: /cgi-bin/app/people
+#def $itemsappurl: /cgi-bin/app/items
+#def $items_peopleappurl: /cgi-bin/app/items_people
+#def $missionsappurl: /cgi-bin/app/missions
+#def $missionsstepsappurl: /cgi-bin/app/missionsteps
+#def $wizardsappurl: /cgi-bin/app/wizards
+#def $commentsappurl:/cgi-bin/app/comments
+#def $treesappurl: /cgi-bin/app/trees
+#def $treesmembersappurl: /cgi-bin/app/treesmembers
+#def $relationtreesappurl: /cgi-bin/app/relationtrees
+#def $groupsappurl: /cgi-bin/app/groups
+#def $groupsmembersappurl: /cgi-bin/app/groupsmembers
+
+
+## User
+#def $usersappurl: /cgi-bin/app/users
+#def $userloginurl: $usersappurl?formtype=user_login
+#def $userlogouturl: $usersappurl?formtype=user_logout
+#def $userregisterurl: $usersappurl?formtype=user_register
+#def $userlogin: <a href="$userloginurl">Login</a>
+#def $userlogout: <a href="$userlogouturl">Logout</a>
+#def $usershomelink: <a href="$usersappurl">Home</a>
+#def $usersregister: <a href="$userregisterurl">Register</a>
+
+## Added these lines:
+#def $msmissionsappurl: /cgi-bin/app/msmissions
+#def $addmsmissionurl: $msmissionsappurl?formtype=edit_new
+#def $addmsmission: <a href="$addmsmissionurl">Add</a>
+#def $msmissionshomelink: <a href="$msmissionsappurl">Home</a>
+
+## Lists
+#def $listsappurl: /cgi-bin/app/lists
+#def $addlisturl: $listsappurl?formtype=edit_new
+#def $addlist: <a href="$addlisturl">Add</a>
+#def $listshomelink:  <a href="$listsappurl">Home</a>
+
+## Relation Trees
+#def $relationtreesappurl: /cgi-bin/app/relationtrees
+#def $addrelationtreeurl: $relationtreesappurl?formtype=edit_new
+#def $addrelationtree: <a href="$addrelationtreeurl">Add</a>
+#def $relationtreeshomelink:  <a href="$relationtreesappurl">Home</a>
+
+
+## Trees
+#def $relationtreesappurl: /cgi-bin/app/relationtrees
+#def $addrelationtreeurl: $relationtreesappurl?formtype=edit_new
+#def $addrelationtree: <a href="$addrelationtreeurl">Add</a>
+#def $relationtreeshomelink:  <a href="$relationtreesappurl">Home</a>
+
+## Trees
+#def $treesappurl: /cgi-bin/app/trees
+#def $addtreeurl: $treesappurl?formtype=edit_new
+#def $addtree: <a href="$addtreeurl">Add</a>
+#def $treeshomelink:  <a href="$treesappurl">Home</a>
+
+## Trees Members 
+#def $treesmembersappurl: /cgi-bin/app/treesmembers
+#def $addtreememberurl: $treesmembersappurl?formtype=edit_new
+#def $addtreemember: <a href="$addtreememberurl">Add</a>
+#def $treesmembershomelink:  <a href="$treesmembersappurl">Home</a>
+
+## Groups
+#def $groupsappurl: /cgi-bin/app/groups
+#def $addgroupurl: $groupsappurl?formtype=edit_new
+#def $addgroup: <a href="$addgroupurl">Add</a>
+#def $groupshomelink:  <a href="$groupsappurl">Home</a>
+
+
+## Groups Members 
+#def $groupsmembersappurl: /cgi-bin/app/groupsmembers
+#def $addgroupmemberurl: $groupsmembersappurl?formtype=edit_new
+#def $addgroupmember: <a href="$addgroupmemberurl">Add</a>
+#def $groupsmembershomelink:  <a href="$groupsmembersappurl">Home</a>
+
+## Relations
+#def $relationsappurl: /cgi-bin/app/relations
+#def $addrelationurl: $relationsappurl?formtype=edit_new
+#def $addrelation: <a href="$addrelationurl">Add</a>
+#def $relationshomelink: <a href="$relationsappurl">Home</a>
+
+## Person
+#def $addpersonurl: $peopleappurl?formtype=edit_new_person
+#def $addperson: <a href="$addpersonurl">Add</a>
+#def $peoplehomelink: <a href="$peopleappurl">Home</a>
+
+#def $additemurl: $itemsappurl?formtype=edit_new
+#def $additem: <a href="$additemurl">Add</a>
+#def $itemshomelink: <a href="$itemsappurl">Home</a>
+
+## Item
+#def $additem_personurl: $items_peopleappurl?formtype=edit_new
+#def $additem_person: <a href="$additem_personurl">Add</a>
+#def $items_peoplehomelink: <a href="$items_peopleappurl">Home</a>
+
+## Mission
+#def $addmissionurl: $missionsappurl?formtype=edit_new
+#def $addmission: <a href="$addmissionurl">Add</a>
+#def $missionshomelink: <a href="$missionsappurl">Home</a>
+
+## Missionstep
+#def $addmissionsstepurl: $missionsstepsappurl?formtype=edit_new
+#def $addmissionstep: <a href="$addmissionsstepurl">Add</a>
+#def $missionsstepshomelink: <a href="$missionsstepsappurl">Home</a>
+
+##SimpleMission
+#def $addsimplemissionurl: $wizardsappurl?formtype=edit_new_simplemission&amp;steps=5
+#def $addsimplemission: <a href="$addsimplemissionurl">Simple Mission</a>
+#def $authoringapphomelink: <a href="$wizardsappurl">Home</a>
+
+##Comment
+#def $addcommenturl: $commentsappurl?formtype=edit_new_comment
+#def $addcomment: <a href="$addcommenturl">Add</a>
+#def $commentapphomelink: <a href="$commentsappurl">Home </a>
+## This needs to be modified to present the view determined by the owns and canview realtions 
+#def $pretext:
+<table><tr>
+
+<td align="center" style="border: 3px solid; padding: 8;"> People<br>($peoplehomelink | $addperson ) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> Items<br>( $itemshomelink | $additem ) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> ItemPerson<br>( $items_peoplehomelink | $additem_person ) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> Mission<br>($missionshomelink | $addmission) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> Mission Step<br>($missionsstepshomelink | $addmissionstep ) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> Wizards<br>($authoringapphomelink | $addsimplemission ) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> Comments<br>($commentapphomelink | $addcomment ) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> Relations (a bag) <br>($relationshomelink | $addrelation ) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> Groups  <br>($groupshomelink | $addgroup) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> Groups Members <br>($groupsmembershomelink | $addgroupmember) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> Trees  <br>($treeshomelink | $addtree) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> Trees Members <br>($treesmembershomelink | $addtreemember) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> Relation Trees Members <br>($relationtreeshomelink | $addrelationtree) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> Lists Members <br>($listshomelink | $addlist) </td>
+
+<td align="center" style="border: 3px solid; padding: 8;"> MsMission<br>($msmissionshomelink | $addmsmission) </td>
+</tr></table>
+#end def
+
+## New second pretext for user login
+#def $userpretext:
+<table><tr>
+<td align="center" style="border: 3px solid; padding: 8;"> User<br>($usershomelink | $userlogin | $userlogout | $usersregister) </td>
+</tr></table>
+#end def
+#def $userpendingpretext:
+<table><tr>
+<td align="center" style="border: 3px solid; padding: 8;"> User<br>($usershomelink | $userlogin ) </td>
+</tr></table>
+#end def
+
+
+#def $content: <p>
+#def $dataentry: <p>
+#def $extra: &nbsp;
+
+<html>
+<body>
+<h1> $banner </h1>
+#if $extra.user == "None"
+$userbanner
+$userpretext
+#else if $extra.user == "Good"
+##$user  
+$pretext
+#else if $extra.user == "Pending"
+$userpendingpretext
+#else
+forgot password form here
+#end if
+<ul>
+$content
+</ul>
+<hr>
+$dataentry
+<hr>
+#if $extra.user == "None"
+Log in and enjoy participate!
+#else if $extra.user == "Good"
+Logged in enjoy participate!
+#else if $extra.user == "Pending"
+<meta http-equiv="Set-Cookie" "content="State=Pending;" >
+
+#else
+Update forms for forgot password
+##else
+##Bad user
+#end if
+<hr>
+<!--
+<P>
+<B> Base mission flag needs adding to Mission <br>
+Editting of record attributes for uploads should not clobber the upload as it presently does </b>
+<P>
+<B>Need to update this such that the "update" template makes it much clearer you're editting a record, rather than creating a new one.</B>
+<P> Note that the code has been refactored somewhat to simplify extension to other datatypes whilst allowing code specific stuff to occur. Further refactoring is needed after we complete showing &amp; making relations, along with the aspect of subset viewing, creation &amp; update. Certainly a start however.
+<P><i> OK, next steps:
+<ul>
+    <li> Need to handle upload of BLOBs...
+    <ul>
+        <li> Can handle now uploads of several pictures at once into the collab platform
+        <li> Stored in /tmp/uploads/<i>number</i>
+        <ul>
+            Moved to CWD/uploads for now - will need to be reconfigurable
+        </ul>
+        <li> Also in environ["bbc.args"] as "field" &amp; &lt;field&gt;.__filename pairs.
+        <li> Needs thinking about slightly more there, but that works pretty well for something hardcoded.
+    </ul>
+    <li> Now need to add in a way to view the uploaded content - which goes a long way to the next 2 points
+    <ul>
+        <li> Have basic viewing of content now sorted, but will need placing behind some protection
+        <li> That shouldn't be an issue though?
+    </ul>
+    <li> Update item needs to *replace* the existing file.
+    <ul>
+        <li> Check that this really is happening correctly. (Not clear)
+        <li> Actually, we know that updating of blobs is bust - find out why.
+        <li> Need to constructively handle empty files too.
+    </ul>
+    <li> A database based around BLOBS (contributed data)
+    <li> A database around BLOBS with metadata
+    <li> A database of associations between the Blobby database and the person database.
+    <li> Then will need to handle deletion of blobs &amp; content properly.
+</ul>
+</i>
+<P> hello
+-->
+</body>
+</html>

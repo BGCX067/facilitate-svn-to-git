@@ -1,0 +1,121 @@
+#def $banner: Participate App V0
+#def $peopleappurl: /cgi-bin/app/people
+#def $itemsappurl: /cgi-bin/app/items
+#def $items_peopleappurl: /cgi-bin/app/items_people
+#def $missionsappurl: /cgi-bin/app/missions
+#def $missionsstepsappurl: /cgi-bin/app/missionsteps
+#def $wizardsappurl: /cgi-bin/app/wizards
+#def $commentsappurl:/cgi-bin/app/comments
+
+
+## Added these lines:
+#def $msmissionsappurl: /cgi-bin/app/msmissions
+#def $addmsmissionurl: $msmissionsappurl?formtype=edit_new
+#def $addmsmission: <a href="$addmsmissionurl">Add</a>
+#def $msmissionshomelink: <a href="$msmissionsappurl">Home</a>
+
+
+
+
+#def $addpersonurl: $peopleappurl?formtype=edit_new
+#def $addperson: <a href="$addpersonurl">Add</a>
+#def $peoplehomelink: <a href="$peopleappurl">Home</a>
+
+#def $additemurl: $itemsappurl?formtype=edit_new
+#def $additem: <a href="$additemurl">Add</a>
+#def $itemshomelink: <a href="$itemsappurl">Home</a>
+
+#def $additem_personurl: $items_peopleappurl?formtype=edit_new
+#def $additem_person: <a href="$additem_personurl">Add</a>
+#def $items_peoplehomelink: <a href="$items_peopleappurl">Home</a>
+
+#def $addmissionurl: $missionsappurl?formtype=edit_new
+#def $addmission: <a href="$addmissionurl">Add</a>
+#def $missionshomelink: <a href="$missionsappurl">Home</a>
+
+#def $addmissionsstepurl: $missionsstepsappurl?formtype=edit_new
+#def $addmissionstep: <a href="$addmissionsstepurl">Add</a>
+#def $missionsstepshomelink: <a href="$missionsstepsappurl">Home</a>
+
+#def $addsimplemissionurl: $wizardsappurl?formtype=edit_new_simplemission&amp;steps=5
+#def $addsimplemission: <a href="$addsimplemissionurl">Simple Mission</a>
+#def $authoringapphomelink: <a href="$wizardsappurl">Home</a>
+
+#def $addcommenturl: $commentsappurl?formtype=edit_new_comment
+#def $addcomment: <a href="$addcommenturl">Add</a>
+#def $commentapphomelink: <a href="$commentsappurl">Home </a>
+
+
+
+#def $pretext:
+<table><tr>
+<td align="center" style="border: 3px solid; padding: 8;"> People<br>($peoplehomelink | $addperson ) </td>
+<td align="center" style="border: 3px solid; padding: 8;"> Items<br>( $itemshomelink | $additem ) </td>
+<td align="center" style="border: 3px solid; padding: 8;"> ItemPerson<br>( $items_peoplehomelink | $additem_person ) </td>
+<td align="center" style="border: 3px solid; padding: 8;"> Mission<br>($missionshomelink | $addmission) </td>
+<td align="center" style="border: 3px solid; padding: 8;"> Mission Step<br>($missionsstepshomelink | $addmissionstep ) </td>
+<td align="center" style="border: 3px solid; padding: 8;"> Wizards<br>($authoringapphomelink | $addsimplemission ) </td>
+<td align="center" style="border: 3px solid; padding: 8;"> Comments<br>($commentapphomelink| $addcomment ) </td>
+
+<!-- Also added this line -->
+<td align="center" style="border: 3px solid; padding: 8;"> MsMission<br>($msmissionshomelink | $addmsmission) </td>
+
+</tr></table>
+#end def
+#def $content: <p>
+#def $dataentry: <p>
+#def $extra: &nbsp;
+
+<html>
+<body>
+<h1> $banner (branch: mps_Work)</h1>
+$pretext
+
+<ul>
+$content
+</ul>
+<hr>
+$dataentry
+<hr>
+$extra
+<hr>
+<!--
+<P>
+<B> Base mission flag needs adding to Mission <br>
+Editting of record attributes for uploads should not clobber the upload as it presently does </b>
+<P>
+<B>Need to update this such that the "update" template makes it much clearer you're editting a record, rather than creating a new one.</B>
+<P> Note that the code has been refactored somewhat to simplify extension to other datatypes whilst allowing code specific stuff to occur. Further refactoring is needed after we complete showing &amp; making relations, along with the aspect of subset viewing, creation &amp; update. Certainly a start however.
+<P><i> OK, next steps:
+<ul>
+    <li> Need to handle upload of BLOBs...
+    <ul>
+        <li> Can handle now uploads of several pictures at once into the collab platform
+        <li> Stored in /tmp/uploads/<i>number</i>
+        <ul>
+            Moved to CWD/uploads for now - will need to be reconfigurable
+        </ul>
+        <li> Also in environ["bbc.args"] as "field" &amp; &lt;field&gt;.__filename pairs.
+        <li> Needs thinking about slightly more there, but that works pretty well for something hardcoded.
+    </ul>
+    <li> Now need to add in a way to view the uploaded content - which goes a long way to the next 2 points
+    <ul>
+        <li> Have basic viewing of content now sorted, but will need placing behind some protection
+        <li> That shouldn't be an issue though?
+    </ul>
+    <li> Update item needs to *replace* the existing file.
+    <ul>
+        <li> Check that this really is happening correctly. (Not clear)
+        <li> Actually, we know that updating of blobs is bust - find out why.
+        <li> Need to constructively handle empty files too.
+    </ul>
+    <li> A database based around BLOBS (contributed data)
+    <li> A database around BLOBS with metadata
+    <li> A database of associations between the Blobby database and the person database.
+    <li> Then will need to handle deletion of blobs &amp; content properly.
+</ul>
+</i>
+<P> hello
+-->
+</body>
+</html>

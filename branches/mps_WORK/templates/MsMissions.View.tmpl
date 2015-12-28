@@ -1,0 +1,6 @@
+#def $appurl: $SCRIPT_NAME
+#def $viewurl: $appurl?formtype=view_msmission&msmissionid=
+#for $msmission in $msmissions
+<li>$msmission["msmissionid"] ( <a href='$appurl?formtype=view_msmission&msmissionid=$msmission["msmissionid"]'>v</a>, <a href='$appurl?formtype=edit_msmission&msmissionid=$msmission["msmissionid"]'>e</a>, <a href='$appurl?formtype=delete_msmission&msmissionid=$msmission["msmissionid"]'>d</a>) $msmission["msmission"], $msmission["shortdescription"] $msmission["mediumdescription"] <!-- $msmission["longdescription"] -->
+#end for
+

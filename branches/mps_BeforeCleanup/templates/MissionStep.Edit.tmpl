@@ -1,0 +1,38 @@
+#def $form: form
+#def $leftselected: None
+#def $rightselected: None
+#def $missionstepid: -1
+#def $pretext: Create mission step between:
+#def $humancondition: &nbsp;
+#def $machinecondition: &nbsp;
+
+<input type="hidden" name="$(form).missionstepid" value="$missionstepid" />
+<P>$pretext
+<ul>
+#if $missionstepid != "-1"
+$missionstepid
+#end if
+<select name="$(form).leftid">
+#for $item in $Items
+<option value="$item["missionid"]"
+#if $item["missionid"] == $leftselected
+selected
+#end if
+>$item["mission"],  $item["shortdescription"]</option>
+#end for
+</select>
+
+<select name="$(form).rightid">
+#for $person in $People
+<option value="$person["missionid"]"
+#if $person["missionid"] == $rightselected
+selected
+#end if
+>$person["mission"],  $person["shortdescription"]</option>
+#end for
+</select>
+</ul>
+<table>
+<tr><td> Condition Description</td><td> <input type="text" name="$(form).humancondition" value="$humancondition" size="30"/> </td></tr>
+<tr><td> Condition Filter</td><td> <input type="text" name="$(form).machinecondition" value="$machinecondition" size="30"/> </td></tr>
+</table>

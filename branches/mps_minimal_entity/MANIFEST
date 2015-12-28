@@ -1,0 +1,38 @@
+A step through the file system (at some point this will have to have a
+radical restructure, but this is a snapshot of *now* (April 9th 2008)
+
+.
+./missions        | The cgi script
+./Missions.py     | The code the cgi script calls
+./bbcwsgitools.py | Used by the cgi script to simplify "Missions.py"
+
+./model                | For handling storage & retrieval of records
+./model/Record.py     
+./model/__init__.py
+./model/test_Record.py
+
+./uploads              | Uploads get dumped in here. There are obviously
+                       | some issues here, but the mechanism for getting
+                       | them here does work - which is the key thing at
+                       | this stage.
+
+./data                 | A new directory for each entity set will be created
+./data/missions        | here
+./data/missions/0      | The file names are actually the entity ids.
+./data/missions/1      | For convenience the <entity>id is included in the 
+./data/missions/2      | JSON object
+./data/missions/3      | Each file stores one JSON object
+./data/missions/.meta  | Metadata about the records stored here
+
+./templates            
+./templates/Page.tmpl  | You add to this template (at present)for each new
+                       | entity
+
+./templates/Form.tmpl       | Used for "normal" forms 
+./templates/Form.Post.tmpl  | Used for post forms, especially those which
+                            | are uploads
+
+
+./templates/Mission.Edit.tmpl   | These are entity set specific, and you
+./templates/Mission.View.tmpl   | would create more of these for your
+./templates/Missions.View.tmpl  | entity set/entities

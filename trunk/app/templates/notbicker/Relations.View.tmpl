@@ -1,0 +1,7 @@
+#def $appurl: $SCRIPT_NAME
+#def $viewurl: $appurl?formtype=view_relation&realtionid=
+#for $relation in $relations
+<li>$relation["relationid"] ( <a href='$appurl?formtype=view_relation&relationid=$relation["relationid"]'>v</a>, <a href='$appurl?formtype=edit_relation&relationid=$relation["relationid"]'>e</a>, <a href='$appurl?formtype=delete_relation&relationid=$relation["relationid"]'>d</a>) 
+          $relation["left_dbid"] $relation["left_itemid"] $relation["right_dbid"] $relation["right_itemid"]
+#end for
+

@@ -1,0 +1,69 @@
+#def $preformtext : &nbsp;
+#def $localid: &nbsp;
+#def $form: &nbsp;
+#def $missionid: &nbsp;
+#def $formextra: &nbsp;
+#def $mission: &nbsp;
+#def $shortdescription: &nbsp;
+#def $mediumdescription: &nbsp;
+#def $longdescription: &nbsp;
+#def $expectcomment: &nbsp;
+#def $expectphoto: &nbsp;
+#def $expectdataentry: &nbsp;
+#def $timereminder: &nbsp;
+#def $timefail: &nbsp;
+#def $appurl: $SCRIPT_NAME
+
+#set num_more = len($entries) +1
+[
+#if len($entries)>1:
+#set num_less = len($entries) -1
+<a href='$appurl?formtype=edit_new_simplemission&steps=$num_less'> less parts</a> | 
+#end if
+<a href='$appurl?formtype=edit_new_simplemission&steps=$num_more'> more parts</a>
+]
+
+#for $entry in $entries:
+#if $entry == 1:
+#set basemission="CHECKED"
+#set preformtext = "Base Mission/Call to action"
+#else:
+#set basemission=""
+#set preformtext = "Continuation Mission"
+#set preventry=$entry -1
+#end if
+
+<P><b> $preformtext </b>
+<P><b> Local mission id: $(entry) </b>
+<input type="hidden" name="$(form).missionid" value="-$(entry)" /> </td></tr>
+#if $entry != 1:
+
+<ul>
+<P> How and why we enter this continuation from another mission
+<table>
+<tr><td> Previous Mission</td><td> <input type="text" name="form.$(entry).leftid" value="$preventry" size="5"/>
+<input type="hidden" name="form.$(entry).rightid" value="$(entry)" size="5"/> </td></tr>
+<tr><td> Reason we enter here</td><td> <input type="text" name="form.$(entry).humancondition" value="" size="60"/> </td></tr>
+<tr><td> Reason (code)</td><td> <input type="text" name="form.$(entry).machinecondition" value="" size="30"/> </td></tr>
+</table>
+</ul>
+
+#end if
+<input type="hidden" name="$(form).basemission" value="$basemission" size="80"/>
+
+<table>
+<tr><td> Mission</td><td> <input type="text" name="$(form).mission" value="$mission" size="30"/> </td></tr>
+<tr><td> Short Description </td><td> <input type="text" name="$(form).shortdescription" value="$shortdescription" size="30"/> </td></tr>
+<tr><td> Medium Description</td><td> <input type="text" name="$(form).mediumdescription" value="$mediumdescription" size="30"/> </td></tr>
+<tr><td> Long Description </td><td> <input type="text" name="$(form).longdescription" value="$longdescription" size="80"/> 
+</td></tr>
+</table>
+<P><ul>
+<li> Expecting upload of comment <input type="checkbox" name="$(form).expectcomment" $expectcomment size="80"/>
+<li> Expecting upload of photo <input type="checkbox" name="$(form).expectphoto" $expectphoto size="80"/>
+<li> Expecting data entry <input type="checkbox" name="$(form).expectdata" $expectdataentry size="80"/>
+<li> <input type="text" name="$(form).timereminder" value="$timereminder" size="10"/> days before reminder
+<li> <input type="text" name="$(form).timefail" value="$timefail" size="10"/> days before fail
+</ul>
+
+#end for

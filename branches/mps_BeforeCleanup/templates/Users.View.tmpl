@@ -1,0 +1,7 @@
+#def $appurl: $SCRIPT_NAME
+#def $viewurl: $appurl?formtype=view_user&userid=
+#for $user in $users
+<li>$user["userid"] ( <a href='$appurl?formtype=view_user&userid=$user["userid"]'>v</a>, <a href='$appurl?formtype=edit_user&userid=$user["userid"]'>e</a>, <a href='$appurl?formtype=delete_user&userid=$user["userid"]'>d</a>) 
+##$user["user"], $user["shortdescription"] $user["mediumdescription"] <!-- $user["longdescription"] -->
+#end for
+

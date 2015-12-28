@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+#
+# BICKER
+#
+
+print "Content-Type: text/html\n\n"
+print """
+<html>
+<body>
+<h1> Moderation Complete !</h1>
+</body>
+</html>
+"""
+
+import os
+
+
+for image in os.listdir("/srv/www/sites/bicker.kamaelia.org/moderate/images/"):
+    files = os.listdir("/srv/www/sites/bicker.kamaelia.org/moderate/images/"+image)
+    if not (len(files) < 7):
+        for size in os.listdir("/srv/www/sites/bicker.kamaelia.org/moderate/images/"+image):
+          try:
+            os.rename("/srv/www/sites/bicker.kamaelia.org/moderate/images/"+image+"/"+size,
+                      "/srv/www/sites/bicker.kamaelia.org/docs/images/user/"+image+"/"+size)
+          except OSError:
+            raise "Hm..." + "/srv/www/sites/bicker.kamaelia.org/docs/images/user/"+image+"/"+size
+
+        os.rmdir("/srv/www/sites/bicker.kamaelia.org/moderate/images/"+image)
+
+for video in os.listdir("/srv/www/sites/bicker.kamaelia.org/moderate/videos/"):
+    if video[video.rfind("."):] == ".flv":
+
+        os.rename("/srv/www/sites/bicker.kamaelia.org/moderate/videos/" + video,
+                  "/srv/www/sites/bicker.kamaelia.org/docs/videos/user/" + video)

@@ -1,0 +1,12 @@
+#def $appurl: $SCRIPT_NAME
+#def $viewurl: $appurl?formtype=view_comment&commentid=
+#for $comment in $comments
+<li>$comment["commentid"] ( <a href='$appurl?formtype=view_comment&commentid=$comment["commentid"]'>v</a> , <a href='$appurl?formtype=edit_comment&commentid=$comment["commentid"]'>e</a>, <a href='$appurl?formtype=delete_comment&commentid=$comment["commentid"]'>d</a>) $comment["comment"] 
+#end for
+
+
+##def $appurl: $SCRIPT_NAME
+##def $viewurl: $appurl?formtype=view_person&personid=
+##for $person in $people
+##<li>$person["personid"] ( <a href='$appurl?formtype=view_person&personid=$person["personid"]'>v</a>, <a href='$appurl?formtype=edit_person&personid=$person["personid"]'>e</a>, <a href='$appurl?formtype=delete_person&personid=$person["personid"]'>d</a>) $person["person"], $person["house"] $person["street"], $person["town"], $person["county"], $person["postcode"], $person["phone"]
+##end for

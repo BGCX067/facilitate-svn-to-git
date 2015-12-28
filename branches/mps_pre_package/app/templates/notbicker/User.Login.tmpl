@@ -1,0 +1,23 @@
+#def $form: form
+#def $user: &nbsp;
+#def $userid: -1
+#def $shortdescription: &nbsp;
+#def $mediumdescription: &nbsp;
+#def $longdescription: &nbsp;
+#def $baseuser: &nbsp;
+
+<input type="hidden" name="$(form).userid" value="$userid" /> </td></tr>
+<table style="width:100%;">
+<tr><td width="15%"> User</td><td> <input type="text" name="$(form).username" size="30"/> </td></tr>
+<tr><td width="15%"> Password</td><td> <input type="password" name="$(form).password" size="30" /> </td></tr>
+##<tr><td> Short Description </td><td> <input type="text" name="$(form).shortdescription" value="$shortdescription" size="30"/> </td></tr>
+##<tr><td> Medium Description</td><td> <input type="text" name="$(form).mediumdescription" value="$mediumdescription" size="30"/> </td></tr>
+##<!-- <tr><td> Long Description </td><td> <input type="text" name="$(form).longdescription" value="$longdescription" size="80"/> </td></tr> -->
+##<tr><td> Long Description </td>
+<td>
+##<textarea name="$(form).longdescription" style="width:500;height:200;" >
+##$longdescription
+</textarea>
+</td></tr>
+##<tr><td> Base User</td><td> <input type="checkbox" name="$(form).baseuser" $baseuser size="80"/> </td></tr>
+</table>

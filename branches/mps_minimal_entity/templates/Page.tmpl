@@ -1,0 +1,39 @@
+#def $banner: Participate App V0
+
+## NOTE: If you add a top level script you add a new <scriptname>appurl here
+
+#def $missionsappurl: /cgi-bin/app/missions
+
+## NOTE: Similarly, you need to define the links for adding <entities a the app home>
+
+#def $addmissionurl: $missionsappurl?formtype=edit_new
+#def $addmission: <a href="$addmissionurl">Add</a>
+#def $missionshomelink: <a href="$missionsappurl">Home</a>
+
+#def $pretext:
+<table><tr>
+
+## NOTE: In this table you would add an extra <td> line, customised for your entity
+
+<td align="center" style="border: 3px solid; padding: 8;"> Mission<br>($missionshomelink | $addmission) </td>
+</tr></table>
+#end def
+#def $content: <p>
+#def $dataentry: <p>
+#def $extra: &nbsp;
+
+<html>
+<body>
+<h1> $banner </h1>
+$pretext
+
+<ul>
+$content
+</ul>
+<hr>
+$dataentry
+<hr>
+$extra
+<hr>
+</body>
+</html>

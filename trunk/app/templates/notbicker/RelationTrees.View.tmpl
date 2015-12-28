@@ -1,0 +1,22 @@
+
+#def $appurl: $SCRIPT_NAME
+#def $viewurl: $appurl?formtype=view_relation&realtionid=
+#for $relation in $relations
+#if $relation["root_id"]==-99
+<p> 
+  <tr> &nbsp &nbsp &nbsp &nbsp<td>tree level: $relation["level"] <td> child number: $relation["child"] <td> children: $relation["subtree"] </tr> 
+#else
+<li>$relation["relationid"] ( <a href='$appurl?formtype=view_relation&relationid=$relation["relationid"]'>v</a>,
+## <a href='$appurl?formtype=edit_relation&relationid=$relation["relationid"]'>e</a>, 
+##<a href='$appurl?formtype=delete_relation&relationid=$relation["relationid"]'>d</a>
+#if $relation["root_id"]==-1
+<a href='$appurl?formtype=view_tree&relationid=$relation["relationid"]'>tree</a>,
+) 
+$relation["left_dbid"] $relation["left_itemid"] $relation["right_dbid"] $relation["right_itemid"]
+#else
+ node 
+) 
+$relation["left_dbid"] $relation["left_itemid"] $relation["right_dbid"] $relation["right_itemid"]
+#end if
+#end if
+#end for

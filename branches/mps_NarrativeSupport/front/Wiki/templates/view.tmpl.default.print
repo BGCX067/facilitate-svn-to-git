@@ -1,0 +1,136 @@
+Content-Type: text/html
+
+<html>
+<head>
+<title> [[title] ] </title>
+
+<style>
+a {
+    text-decoration: none;
+}
+*.thinborder {
+    border-style: solid;
+    border-width: thin;
+}
+.boxright {
+    float: right;
+    width: 20em;
+    padding: 0.5em;
+    margin: 1em;
+    clear: right;
+    border: 1px solid;
+    text-align: left;
+}
+.leftbar {
+    float: left;
+    width: 10em;
+    padding-left: 1.0em;
+    padding-right: 0.5em;
+    padding-top: 0em;
+    margin-top: 0em;
+    margin-bottom: 1em;
+    margin-left: 0em;
+    margin-right: 1em;
+    clear: left;
+    text-align: left;
+}
+.boxleft{
+    float: left;
+    width: 9.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1.0em;
+    padding-right: 1.0em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0em;
+    margin-right: 1em;
+    clear: left;
+    border-top: 5px solid;
+    border-bottom: 5px solid;
+    text-align: left;
+}
+.none { width: 100%;
+        clear: both;
+}
+
+.subsection { }
+.sectionheader {
+                 text-align: center;
+                 font-weight: bold;
+                 padding-bottom: 1em;
+               }
+.sectioncontent { font-size: 0.9em;
+                  margin-left: 2em;
+                  line-height: 1.5;
+                  text-align: left;
+                }
+.verticaldivider { float: bottom;
+                   width: 100%;
+                 }
+
+ .rbroundbox_green { background: url(/t/green.corners-top.png) repeat-x; 
+               width: 50%;
+               float: right;
+               }
+ .rbtop_green div { background: url(/t/green.corners-topleft.png) no-repeat top left; }
+ .rbtop_green { background: url(/t/green.corners-topright.png) no-repeat top right; }
+
+ .rbcontent_green div { background: url(/t/green.corners-right.png) repeat-y right; 
+                }
+ .rbcontent_green { background: url(/t/green.corners-left.png) repeat-y left; 
+              padding-left: 1.5em;
+            }
+
+ .rbbot_green div { background: url(/t/green.corners-bottomleft.png) no-repeat bottom left; }
+ .rbbot_green { background: url(/t/green.corners-bottomright.png) no-repeat bottom right; }
+ .rbbottom_green { background: url(/t/green.corners-bottom.png) repeat-x; }
+ .rbtop_green div, .rbtop_green, .rbbot_green div, .rbbot_green {
+ width: 100%;
+ height: 23px;
+ font-size: 1px;
+ }
+body {
+   text-align: justify;
+}
+
+.sidebar {
+    width: 10em;
+    float: left;
+    padding-left: 1em;
+    padding-right: 1em;
+
+}
+.bodytext {
+
+    margin: 0 5em 0em 5em;
+    float: auto;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.topnav {
+    padding-top: 0em;
+    margin-top: 0em;
+    float: right;
+}
+</style>
+
+</head>
+<body style="font-size: 10pt; font-family: verdana,arial,helvetica,sans-serif; line-height: 1.8;">
+</div>
+
+</span></p>
+<div class="bodytext">
+[[content]]
+[[metadata]]
+</div>
+<div style="float: left; width: 5em; text-align: center"><img src='/Kamaelia.gif'></div>
+<div class="bodytext">
+This is a page from the Kamaelia website. You can find the original here:
+<ul><li><a href="[[baseurl]][[userpagename]]">
+[[baseurl]][[pagename]]
+</a></ul>
+
+</div>
+</body>
+</html>

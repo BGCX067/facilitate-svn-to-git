@@ -1,0 +1,5 @@
+#def $appurl: /cgi-bin/app/items
+#def $viewurl: $appurl?formtype=view&itemid=
+#for $item in $Items
+<li>$item["itemid"] ( <a href='$appurl?formtype=view&itemid=$item["itemid"]'>v</a>, <a href='$appurl?formtype=edit&itemid=$item["itemid"]'>e</a>, <a href='$appurl?formtype=delete&itemid=$item["itemid"]'>d</a>) $item["item"],  $item["tags"]
+#end for

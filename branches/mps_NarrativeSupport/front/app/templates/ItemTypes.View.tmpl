@@ -1,0 +1,59 @@
+#def $form: form
+#def $appurl: /cgi-bin/app/relations
+#def $viewurl: $appurl?formtype=view&itemid=
+#def $relationid: -1
+#def $leftselected: None
+#def rightselected: None
+#def $pretext: Define relation 
+#def $intertext: between item type:-
+#def $context:    and item type:-
+##def $subtext: go 
+
+
+<P>$pretext
+<input type="hidden" name="$(form).relationid" value="$relationid" />
+
+##if $relationid != "-1"
+$relationid
+##end if
+$intertext
+<select name="$(form).leftid">
+#for $item in $itemtypes
+<option value="$item["item"]"
+#if $item["item"] == $leftselected
+selected
+#end if
+>$item["item"]
+##,  $item["shortdescription"]</option>
+#end for
+</select>
+
+$context
+<select name="$(form).rightid">
+#for $item in $itemtypes
+<option value="$item["item"]"
+#if $item["item"] == $rightselected
+selected
+#end if
+>$item["item"]
+##,  $item["shortdescription"]</option>
+#end for
+</select>
+##$subtext
+
+
+##for $item in $itemtypes
+##<li>$item["itemid"] ( <a href='$appurl?formtype=view&itemid=$item["itemid"]'>v</a>, 
+##                      <a href='$appurl?formtype=edit&itemid=$item["itemid"]'>e</a>, 
+##                      <a href='$appurl?formtype=delete&itemid=$item["itemid"]'>d</a>) $item["item"]
+##,  $item["tags"]
+##end for
+
+
+##for $person in $People
+##<option value="$person["missionid"]"
+##if $person["missionid"] == $rightselected
+##selected
+##end if
+##>$person["mission"],  $person["shortdescription"]</option>
+##end for

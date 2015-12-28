@@ -1,0 +1,12 @@
+#def $appurl: $SCRIPT_NAME
+#def $viewurl: $appurl?formtype=view_group&groupid=
+#for $group in $groups
+<li>$group["groupid"] ( <a href='$appurl?formtype=view_comment&groupid=$group["groupid"]'>v</a> , <a href='$appurl?formtype=edit_comment&groupid=$group["groupid"]'>e</a>, <a href='$appurl?formtype=delete_comment&groupid=$group["groupid"]'>d</a>) $group["groupname"] 
+#end for
+
+
+##def $appurl: $SCRIPT_NAME
+##def $viewurl: $appurl?formtype=view_person&personid=
+##for $person in $people
+##<li>$person["personid"] ( <a href='$appurl?formtype=view_person&personid=$person["personid"]'>v</a>, <a href='$appurl?formtype=edit_person&personid=$person["personid"]'>e</a>, <a href='$appurl?formtype=delete_person&personid=$person["personid"]'>d</a>) $person["person"], $person["house"] $person["street"], $person["town"], $person["county"], $person["postcode"], $person["phone"]
+##end for

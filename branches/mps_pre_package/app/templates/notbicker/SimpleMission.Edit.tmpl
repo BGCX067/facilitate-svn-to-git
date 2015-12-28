@@ -1,0 +1,29 @@
+#def $form: form
+#def $step: form
+#def $localid: &nbsp
+#def $mission: &nbsp;
+#def $missionid: -1
+#def $shortdescription: &nbsp;
+#def $mediumdescription: &nbsp;
+#def $longdescription: &nbsp;
+#def $basemission: &nbsp;
+#def $preformtext: Mission Part
+#def $formextra: &nbsp;
+
+<P><b> $preformtext </b>
+<P><b> Local mission id: $localid </b>
+<input type="hidden" name="$(form).missionid" value="$missionid" /> </td></tr>
+$formextra!!!!!!!!!!!!!!!!!!!!!!!!
+<table>
+<tr><td> Mission</td><td> <input type="text" name="$(form).mission" value="$mission" size="30"/> </td></tr>
+<tr><td> Short Description </td><td> <input type="text" name="$(form).shortdescription" value="$shortdescription" size="30"/> </td></tr>
+<tr><td> Medium Description</td><td> <input type="text" name="$(form).mediumdescription" value="$mediumdescription" size="30"/> </td></tr>
+<tr><td> Long Description </td><td> <input type="text" name="$(form).longdescription" value="$longdescription" size="80"/> </td></tr>
+</table>
+<P><ul>
+<li> Expecting upload of comment <input type="checkbox" name="$(form).expectcomment" value="$longdescription" size="80"/>
+<li> Expecting upload of photo <input type="checkbox" name="$(form).expectphoto" value="$longdescription" size="80"/>
+<li> Expecting data entry <input type="checkbox" name="$(form).expectdata" value="$longdescription" size="80"/>
+<li> <input type="text" name="$(form).timereminder" value="$longdescription" size="10"/> days before reminder
+<li> <input type="text" name="$(form).timefail" value="$longdescription" size="10"/> days before fail
+</ul>
